@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AYDA Ders Materyalleri</title>
-  <meta name="theme-color" content="#234078" />
+  <meta name="theme-color" content="#122850" />
 
   <style>
     :root {
@@ -756,6 +756,54 @@ html{scroll-behavior:smooth}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
+
+/* AYDA B1-derived design language: navy, cream, warm yellow and mint */
+:root{--ayda:#122850;--ayda-dark:#0e2144;--ayda-soft:#eef3f8;--bg:#f8f7f2;--card:#fff;--text:#14213d;--muted:#60708d;--border:#dde5f0;--shadow:0 14px 38px #12285012;--a1:#122850;--a2:#16755f;--b1:#ab6c17;--b2:#634fbe}
+body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.hero{background:linear-gradient(145deg,#122850,#244269);box-shadow:0 16px 42px #12285023;border:1px solid #ffffff20}
+.brand{background:#ffffff16}
+.hero h1{font-weight:900;letter-spacing:-.04em}
+.level-shortcuts{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.level-btn{box-shadow:none;border:1px solid #e1e8f0;min-height:73px;border-radius:15px;padding:13px;text-align:left}
+.level-btn.active{outline:3px solid #ffcf4a;outline-offset:0}
+.level-all{background:#fff;color:#122850;cursor:pointer;font-family:inherit}
+.level-all:hover{background:#fff4d4}
+.level-btn span:first-child{font-weight:900}
+.search-box{border-radius:17px;box-shadow:0 6px 21px #1228500b}
+.search-box input{border-color:#d3dce9}
+.search-box input:focus{border-color:#122850;outline:3px solid #ffcf4a55}
+.material-type-filters{display:flex;overflow-x:auto;gap:7px;scrollbar-width:thin;padding:11px 0 2px}
+.type-chip{flex:none;min-height:38px;padding:7px 12px;border:1px solid #dde5f0;border-radius:999px;color:#364968;background:#f7f9fc;cursor:pointer;font:750 12px/1.25 inherit}
+.type-chip.active{background:#122850;color:#fff;border-color:#122850}
+.type-chip:hover{border-color:#122850}
+.search-feedback{font-size:12px;min-height:29px}
+.clear-search{background:#ffcf4a;color:#2f270b;border-color:#ffcf4a}
+.folder-group{border-color:#e1e7ed}
+.folder-group>summary{color:#14213d}
+.folder-group[hidden],.search-section[hidden],.material-tile[hidden]{display:none!important}
+.material-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.material-tile{display:flex;flex-direction:column;min-width:0;border:1px solid #dde5f0;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 5px 15px #1228500a}
+.material-tile .material-card{flex:1;border:0!important;box-shadow:none!important;border-radius:0!important;padding:15px;min-height:107px}
+.material-copy{display:flex;align-items:center;justify-content:center;gap:6px;background:#f3f6fa;border:0;border-top:1px solid #dde5f0;color:#122850;min-height:42px;font:800 12px/1.3 inherit;cursor:pointer}
+.material-copy:hover{background:#fff0c7}
+.material-tile .material-card:hover{transform:none;box-shadow:none}
+.material-toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));z-index:1001;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:#122850;color:white;border-radius:12px;padding:12px 17px;font-size:13px;font-weight:800;max-width:calc(100% - 26px);text-align:center;box-shadow:0 12px 30px #12285044;transition:.2s}
+.material-toast.visible{opacity:1;transform:translate(-50%,0)}
+.help-collapsible{border-radius:14px}
+:focus-visible{outline:3px solid #ffcf4a;outline-offset:3px}
+@media(max-width:920px){.material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+ .level-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .level-btn{min-height:65px;padding:9px}
+ .level-btn span:last-child{font-size:10px}
+ .material-grid{grid-template-columns:1fr;gap:9px}
+ .material-tile .material-card{min-height:88px;padding:12px}
+ .material-copy{min-height:43px}
+ .search-box{padding:13px}
+ .type-chip{min-height:42px}
+}
+@media(max-width:350px){.level-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.material-toast{transition:none}}
 </style>
 </head>
 
@@ -789,11 +837,20 @@ html{scroll-behavior:smooth}
     <section class="search-box">
       <label for="searchInput">Materyal ara</label>
       <input id="searchInput" type="search" placeholder="PDF, Audio, Menschen A1.1 veya TELC B2 ara..." />
+      <div class="material-type-filters" role="group" aria-label="Dosya türüne göre filtrele">
+<button class="type-chip active" data-kind="all" type="button" aria-pressed="true">Tüm kaynaklar</button>
+<button class="type-chip" data-kind="book" type="button" aria-pressed="false">Kitap / PDF</button>
+<button class="type-chip" data-kind="audio" type="button" aria-pressed="false">Ses dosyaları</button>
+<button class="type-chip" data-kind="video" type="button" aria-pressed="false">Video</button>
+<button class="type-chip" data-kind="exam" type="button" aria-pressed="false">Sınav</button>
+<button class="type-chip" data-kind="other" type="button" aria-pressed="false">Diğer klasörler</button>
+</div>
       <div class="search-feedback"><span id="searchResultSummary" role="status" aria-live="polite">Seviyeni seç veya materyal adıyla ara.</span><button type="button" id="clearSearchBtn" class="clear-search" hidden>Temizle ×</button></div>
       <div class="empty" id="emptyMessage">Aramanızla eşleşen materyal bulunamadı.</div>
     </section>
 
     <div class="level-shortcuts">
+<button class="level-btn level-all" type="button" id="allMaterialsBtn" aria-pressed="true"><span>Tümü</span><span>Bütün seviyeler</span></button>
       <a href="#a1-materials" class="level-btn level-a1">
         <span>A1</span>
         <span>Başlangıç seviyesi materyalleri</span>
@@ -1290,85 +1347,125 @@ html{scroll-behavior:smooth}
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const input = document.getElementById("searchInput");
-      const cards = Array.from(document.querySelectorAll(".material-card"));
-      const groups = Array.from(document.querySelectorAll(".folder-group"));
-      const sections = Array.from(document.querySelectorAll(".search-section"));
-      const empty = document.getElementById("emptyMessage");
-      const status = document.getElementById("searchResultSummary");
-      const clearButton = document.getElementById("clearSearchBtn");
+document.addEventListener("DOMContentLoaded", function () {
+  const input=document.getElementById("searchInput");
+  const cards=Array.from(document.querySelectorAll(".material-card"));
+  const groups=Array.from(document.querySelectorAll(".folder-group"));
+  const sections=Array.from(document.querySelectorAll(".search-section"));
+  const empty=document.getElementById("emptyMessage");
+  const status=document.getElementById("searchResultSummary");
+  const clearButton=document.getElementById("clearSearchBtn");
+  const chips=Array.from(document.querySelectorAll(".type-chip"));
+  const levels=Array.from(document.querySelectorAll(".level-shortcuts a.level-btn"));
+  const allButton=document.getElementById("allMaterialsBtn");
+  let selectedLevel="all";
+  let selectedKind="all";
 
-      if (!input) return;
-
-      input.addEventListener("input", function () {
-        const q = input.value.trim().toLocaleLowerCase("tr-TR");
-        let visibleCount = 0;
-
-        cards.forEach(function(card) {
-          const text = card.innerText.toLocaleLowerCase("tr-TR");
-          const match = text.includes(q);
-
-          card.style.display = match ? "flex" : "none";
-
-          if (match) visibleCount++;
-        });
-
-        groups.forEach(function(group) {
-          let hasVisible = false;
-
-          group.querySelectorAll(".material-card").forEach(function(card) {
-            if (card.style.display !== "none") {
-              hasVisible = true;
-            }
-          });
-
-          group.style.display = hasVisible ? "block" : "none";
-
-          if (q.length > 0 && hasVisible) {
-            group.setAttribute("open", "open");
-          }
-        });
-
-        sections.forEach(function(section) {
-          let hasVisible = false;
-
-          section.querySelectorAll(".material-card").forEach(function(card) {
-            if (card.style.display !== "none") {
-              hasVisible = true;
-            }
-          });
-
-          section.style.display = hasVisible ? "block" : "none";
-        });
-
-        empty.style.display = visibleCount === 0 ? "block" : "none";
-        if (status) status.textContent = q ? visibleCount + " materyal bulundu." : "Seviyeni seç veya materyal adıyla ara.";
-        if (clearButton) clearButton.hidden = !q;
-
-        if (q === "") {
-          cards.forEach(function(card) {
-            card.style.display = "flex";
-          });
-
-          groups.forEach(function(group) {
-            group.style.display = "block";
-            group.open = false;
-          });
-
-          sections.forEach(function(section) {
-            section.style.display = "block";
-          });
-
-          empty.style.display = "none";
-        }
+  function classify(card){
+    const text=(card.textContent||"").toLocaleLowerCase("tr-TR");
+    if(/video|youtube|film|videoları/.test(text))return "video";
+    if(/audio|ses dosya|dinleme|hörverstehen/.test(text))return "audio";
+    if(/telc|goethe|ösd|sınav|prüfung/.test(text))return "exam";
+    if(/pdf|kursbuch|arbeitsbuch|kitap|testtrainer|çalışma kitabı/.test(text))return "book";
+    return "other";
+  }
+  let toastTimer;
+  const toast=document.createElement("div");
+  toast.className="material-toast";
+  toast.setAttribute("role","status");
+  toast.setAttribute("aria-live","polite");
+  document.body.appendChild(toast);
+  function notify(msg){
+    toast.textContent=msg;
+    toast.classList.add("visible");
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>toast.classList.remove("visible"),1900);
+  }
+  async function copyLink(url){
+    let success=false;
+    if(navigator.clipboard && window.isSecureContext){
+      try{await navigator.clipboard.writeText(url);success=true;}catch(e){}
+    }
+    if(!success){
+      const field=document.createElement("textarea");
+      field.value=url;field.setAttribute("readonly","");
+      field.style.cssText="position:fixed;left:-9999px;top:0;";
+      document.body.appendChild(field);field.select();
+      try{success=document.execCommand("copy");}catch(e){}
+      field.remove();
+    }
+    notify(success?"Bağlantı kopyalandı":"Kopyalama başarısız. Dosyayı açarak bağlantıyı alabilirsiniz.");
+  }
+  cards.forEach(card=>{
+    card.dataset.kind=classify(card);
+    card.setAttribute("rel","noopener noreferrer");
+    const tile=document.createElement("div");
+    tile.className="material-tile";
+    card.parentElement.insertBefore(tile,card);
+    tile.appendChild(card);
+    const button=document.createElement("button");
+    button.type="button";
+    button.className="material-copy";
+    button.textContent="⧉  Bağlantıyı kopyala";
+    button.setAttribute("aria-label", (card.querySelector(".material-title")?.textContent||"Materyal")+" bağlantısını kopyala");
+    button.addEventListener("click",()=>copyLink(card.href));
+    tile.appendChild(button);
+  });
+  function applyFilters(){
+    const query=input.value.trim().toLocaleLowerCase("tr-TR");
+    let found=0;
+    sections.forEach(section=>{
+      const levelOK=selectedLevel==="all"||section.id===selectedLevel;
+      const levelTitle=section.querySelector("h2")?.textContent||"";
+      let matches=0;
+      section.querySelectorAll(".material-card").forEach(card=>{
+        const corpus=(levelTitle+" "+card.textContent).toLocaleLowerCase("tr-TR");
+        const show=levelOK && (selectedKind==="all"||card.dataset.kind===selectedKind) && (!query||corpus.includes(query));
+        card.closest(".material-tile").hidden=!show;
+        if(show){matches++;found++;}
       });
-      if (clearButton) clearButton.addEventListener("click", function () {
-        input.value = "";
-        input.dispatchEvent(new Event("input", {bubbles: true}));
-        input.focus();
+      section.hidden=!levelOK||matches===0;
+      section.querySelectorAll(".folder-group").forEach(group=>{
+        const any=!!group.querySelector(".material-tile:not([hidden])");
+        group.hidden=!any;
+        if(any&&(query||selectedKind!=="all"))group.open=true;
+        else if(!query&&selectedKind==="all")group.open=false;
       });
     });
-  </script>
+    const active=Boolean(query||selectedLevel!=="all"||selectedKind!=="all");
+    empty.style.display=active&&found===0?"block":"none";
+    status.textContent=active ? found+" materyal bulundu." : cards.length+" materyal · Seviye veya dosya türü seçin.";
+    clearButton.hidden=!active;
+    chips.forEach(chip=>{
+      const selected=chip.dataset.kind===selectedKind;
+      chip.classList.toggle("active",selected);
+      chip.setAttribute("aria-pressed",String(selected));
+    });
+    levels.forEach(level=>{
+      const selected=level.getAttribute("href").slice(1)===selectedLevel;
+      level.classList.toggle("active",selected);
+      level.setAttribute("aria-current",selected?"true":"false");
+    });
+    allButton.classList.toggle("active",selectedLevel==="all");
+    allButton.setAttribute("aria-pressed",String(selectedLevel==="all"));
+  }
+  levels.forEach(level=>level.addEventListener("click",event=>{
+    event.preventDefault();
+    selectedLevel=level.getAttribute("href").slice(1);
+    applyFilters();
+    const target=document.getElementById(selectedLevel);
+    if(target&&!target.hidden)target.scrollIntoView({behavior:"smooth",block:"start"});
+  }));
+  allButton.addEventListener("click",()=>{selectedLevel="all";applyFilters();});
+  chips.forEach(chip=>chip.addEventListener("click",()=>{selectedKind=chip.dataset.kind;applyFilters();}));
+  clearButton.addEventListener("click",()=>{
+    input.value="";selectedLevel="all";selectedKind="all";applyFilters();input.focus();
+  });
+  input.addEventListener("input",applyFilters);
+  const hash=decodeURIComponent(location.hash.slice(1));
+  if(sections.some(section=>section.id===hash))selectedLevel=hash;
+  applyFilters();
+});
+</script>
 </body>
 </html>
