@@ -705,7 +705,58 @@
         display: none;
       }
     }
-  </style>
+  
+/* AYDA compact student resource directory · all original file links preserved */
+:root{--ayda:#102541;--ayda-dark:#0b1b30;--ayda-soft:#f0f3f6;--bg:#fbf9f5;--border:#e7e6e0;--shadow:0 10px 26px rgba(16,37,65,.065)}
+html{scroll-behavior:smooth}
+.hero{padding:24px 28px;border-radius:20px}
+.hero::after{opacity:.35}
+.hero h1{font-size:clamp(23px,3vw,32px)}
+.hero p{font-size:14px;line-height:1.5}
+.hero-note{font-size:12px;padding:9px 12px}
+.search-box{position:relative;margin:14px 0 10px;border:1px solid #e6e4de;border-radius:16px;padding:13px 15px;background:#fff;box-shadow:0 6px 18px rgba(16,37,65,.03)}
+.search-box input{min-height:46px;border-radius:10px;font-size:15px}
+.search-feedback{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:9px;font-size:12px;color:#657185}
+.clear-search{min-height:34px;padding:6px 12px;border:1px solid #dbe3e9;background:#f6f8fa;color:#102541;font:750 12px/1.2 inherit;border-radius:9px;cursor:pointer}
+.clear-search[hidden]{display:none}
+.level-shortcuts{gap:8px;margin-bottom:12px}
+.level-btn{border-radius:12px;min-height:64px}
+.help-collapsible{margin:0 0 16px;border:1px solid #e5e5e1;background:#fff;border-radius:14px;overflow:hidden}
+.help-collapsible>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;font-size:13px;color:#102541;font-weight:800;cursor:pointer;list-style:none}
+.help-collapsible>summary::-webkit-details-marker{display:none}
+.help-collapsible[open]>summary span{transform:rotate(180deg)}
+.help-collapsible .info-grid{margin:0;padding:0 12px 12px}
+.folder-group{margin-bottom:9px}
+.folder-group>summary{cursor:pointer;min-height:47px;font-size:14px}
+.material-grid{gap:9px}
+.material-card{border-radius:12px;min-height:0;padding:13px}
+.material-title{font-size:14px}
+.material-desc{font-size:12px;line-height:1.4}
+.material-card .open{white-space:nowrap}
+.section{scroll-margin-top:15px}
+.floating-whatsapp{animation:none;width:54px;height:54px;font-size:25px}
+.floating-whatsapp::after{display:none}
+@media(max-width:640px){
+ .page{width:min(100% - 16px,1120px);padding-top:8px}
+ .hero{padding:19px 17px;border-radius:16px}
+ .hero h1{font-size:24px}
+ .hero p{font-size:13px}
+ .hero-note{line-height:1.45}
+ .search-box{margin:10px 0 9px;padding:12px}
+ .level-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .level-btn{min-height:57px;padding:10px;font-size:13px}
+ .level-btn span:last-child{font-size:11px;line-height:1.25}
+ .help-collapsible>summary{padding:12px 13px!important;font-size:12px!important}
+ .help-collapsible .info-grid{grid-template-columns:1fr}
+ .section-title{padding:12px}
+ .section-title h2{font-size:18px}
+ .folder-group>summary{padding:13px 44px 13px 12px;font-size:14px}
+ .material-grid{grid-template-columns:1fr}
+ .floating-whatsapp{height:48px;width:48px;font-size:22px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+</style>
 </head>
 
 <body>
@@ -735,6 +786,13 @@
       </div>
     </section>
 
+    <section class="search-box">
+      <label for="searchInput">Materyal ara</label>
+      <input id="searchInput" type="search" placeholder="PDF, Audio, Menschen A1.1 veya TELC B2 ara..." />
+      <div class="search-feedback"><span id="searchResultSummary" role="status" aria-live="polite">Seviyeni seç veya materyal adıyla ara.</span><button type="button" id="clearSearchBtn" class="clear-search" hidden>Temizle ×</button></div>
+      <div class="empty" id="emptyMessage">Aramanızla eşleşen materyal bulunamadı.</div>
+    </section>
+
     <div class="level-shortcuts">
       <a href="#a1-materials" class="level-btn level-a1">
         <span>A1</span>
@@ -757,7 +815,9 @@
       </a>
     </div>
 
-    <section class="info-grid">
+    <details class="help-collapsible">
+<summary>Nasıl kullanılır? · Yardım ve iletişim <span aria-hidden="true">⌄</span></summary>
+<section class="info-grid">
       <div class="help-box">
         <h2>3 Adımda Materyale Ulaşın</h2>
 
@@ -796,13 +856,9 @@
       </div>
     </section>
 
-    <section class="search-box">
-      <label for="searchInput">Materyal ara</label>
-      <input id="searchInput" type="search" placeholder="Örnek: A1.1 Audio, A2 Arbeitsbuch, B1 Video, B2 TELC..." />
-      <div class="empty" id="emptyMessage">Aramanızla eşleşen materyal bulunamadı.</div>
-    </section>
+    </details>
 
-    <!-- A1 -->
+<!-- A1 -->
     <section class="section section-a1 search-section" id="a1-materials">
       <div class="section-title">
         <h2>A1 Materyalleri</h2>
@@ -818,7 +874,7 @@
           <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1EhcIIju4RZyB5HfcccAF6q8nHIou2uwT">A1 Ana Klasörü Aç</a>
         </div>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>A1 Genel Klasörler</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1hNxBPJsk0vszbqwS7Zn6zuFf4KxNEYuT">
@@ -839,7 +895,7 @@
           </div>
         </details>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen A1.1</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1TvFJk-yKOMhz4-Bq9OQ4GCHMPhuLqv17">
@@ -884,7 +940,7 @@
           </div>
         </details>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen A1.2</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1OOC9YeJ33nRbJs4icrqD3j8GaAQnAEfu">
@@ -947,7 +1003,7 @@
           <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1yHVZn0fu2s8kG1f_2uelqnpbQfsN6r3L">A2 Ana Klasörü Aç</a>
         </div>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen A2.1</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1LQRrB2gAFQ7MGEWvdYzSw1UKt9VcKuyY">
@@ -992,7 +1048,7 @@
           </div>
         </details>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen A2.2</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1rB6_Fo-MppXvGNTDknabdkRVYGhdxznK">
@@ -1037,7 +1093,7 @@
           </div>
         </details>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen Alıştırma Videoları</summary>
           <div class="material-grid">
             <a class="material-card video-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1LlOCyTPtjgz40XJI_8dnbs0YYXxtyU9S">
@@ -1068,7 +1124,7 @@
           <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1-4HicuJ5pDdyZim4mT_2ougN2v-vEwPD">B1 Ana Klasörü Aç</a>
         </div>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen B1.1</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1SJc0Y5IM0a-blfHqkvjKj9Ae7Tgsi0qz">
@@ -1113,7 +1169,7 @@
           </div>
         </details>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen B1.2</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/14JLPjC9_cctPe5jDRL18mrpc8xCed9mi">
@@ -1158,7 +1214,7 @@
           </div>
         </details>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>Menschen Alıştırma Videoları</summary>
           <div class="material-grid">
             <a class="material-card video-card" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1K3NJ7NThAA8YxFNcYYsHX0wGpFUIvbMJ">
@@ -1189,7 +1245,7 @@
           <a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1nwBOKfm6XL5TQZKNpQTonkJ21Qe5oF-w">B2 Ana Klasörü Aç</a>
         </div>
 
-        <details class="folder-group" open>
+        <details class="folder-group">
           <summary>TELC B2 Materyalleri</summary>
           <div class="material-grid">
             <a class="material-card" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1RtgwggyAqZ9eSFKa0zp48Wcmpw7jbjYK/view?usp=drive_link">
@@ -1240,6 +1296,8 @@
       const groups = Array.from(document.querySelectorAll(".folder-group"));
       const sections = Array.from(document.querySelectorAll(".search-section"));
       const empty = document.getElementById("emptyMessage");
+      const status = document.getElementById("searchResultSummary");
+      const clearButton = document.getElementById("clearSearchBtn");
 
       if (!input) return;
 
@@ -1285,6 +1343,8 @@
         });
 
         empty.style.display = visibleCount === 0 ? "block" : "none";
+        if (status) status.textContent = q ? visibleCount + " materyal bulundu." : "Seviyeni seç veya materyal adıyla ara.";
+        if (clearButton) clearButton.hidden = !q;
 
         if (q === "") {
           cards.forEach(function(card) {
@@ -1293,6 +1353,7 @@
 
           groups.forEach(function(group) {
             group.style.display = "block";
+            group.open = false;
           });
 
           sections.forEach(function(section) {
@@ -1301,6 +1362,11 @@
 
           empty.style.display = "none";
         }
+      });
+      if (clearButton) clearButton.addEventListener("click", function () {
+        input.value = "";
+        input.dispatchEvent(new Event("input", {bubbles: true}));
+        input.focus();
       });
     });
   </script>
