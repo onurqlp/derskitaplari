@@ -30,7 +30,7 @@ jobs:
               x=d.execute_script("""const logo=document.querySelector('.g6-logo img');return {title:document.title,header:!!document.querySelector('.g6-site-header'),logo:!!logo&&logo.complete&&logo.naturalWidth>0,logoWidth:logo?.getBoundingClientRect().width,materials:document.querySelectorAll('.material-card').length,search:!!document.querySelector('#searchInput'),filter:document.querySelectorAll('.type-chip').length,overflow:document.documentElement.scrollWidth-innerWidth}""")
               print(json.dumps({'screen':name,'checks':x},ensure_ascii=False),flush=True)
               d.save_screenshot('/tmp/g6/'+name+'.png')
-              assert x['header'] and x['logo'] and x['logoWidth']>70 and x['materials']==33 and x['search'] and x['filter']>=5 and x['overflow']<=4
+              assert x['header'] and x['logo'] and x['logoWidth']>70 and x['materials']==36 and x['search'] and x['filter']>=5 and x['overflow']<=4
             print('G6_PREVIEW_OK',flush=True)
           finally:d.quit()
           PY
