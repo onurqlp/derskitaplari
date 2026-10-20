@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AYDA Ders Materyalleri</title>
+  <title>AYDA Ders Kitapları ve Materyalleri | A1 A2 B1 B2</title>
+  <link rel="canonical" href="https://www.aydadil.com/derskitaplari/" />
+  <meta name="description" content="AYDA A1, A2, B1 ve B2 ders kitapları, çalışma dosyaları, dinleme ve video materyalleri. Seviyenizi seçin, arayın ve materyale ulaşın." />
   <meta name="theme-color" content="#122850" />
 
   <style>
@@ -804,6 +806,36 @@ body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,
 }
 @media(max-width:350px){.level-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.material-toast{transition:none}}
+
+/* AYDA 2026: clarity and responsive polish */
+:root { color-scheme: light; }
+:focus-visible{outline:3px solid #d4a44b!important;outline-offset:3px}
+html{scroll-padding-top:22px}
+.level-btn,.material-card,.contact-action,.main-folder a,.type-chip{touch-action:manipulation}
+.material-card,.level-btn{transition:transform .16s ease,box-shadow .16s ease}
+@media(max-width:740px){
+ .page{width:calc(100% - 24px);padding-top:12px}
+ .hero{padding:24px 20px;border-radius:22px}
+ .hero h1{font-size:clamp(29px,8vw,42px);line-height:1.15}
+ .hero p{font-size:15px}
+ .level-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .level-btn{min-height:88px;border-radius:16px;padding:14px}
+ .info-grid,.steps{grid-template-columns:1fr}
+ .section-title{align-items:flex-start;flex-direction:column}
+ .section-title h2{font-size:25px}
+ .panel{padding:12px;border-radius:18px}
+ .material-grid{grid-template-columns:1fr;gap:10px;padding:10px}
+ .material-card{min-height:100px;padding:14px}
+ .main-folder{flex-wrap:wrap;padding:15px}
+ .main-folder a{width:100%;text-align:center}
+ summary{padding:16px 95px 16px 14px;font-size:16px}
+ summary::after{right:9px;font-size:11px}
+}
+@media(min-width:741px) and (max-width:1030px){
+ .material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
 </style>
 </head>
 
